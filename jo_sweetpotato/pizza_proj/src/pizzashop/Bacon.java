@@ -10,6 +10,8 @@ public class Bacon extends Topping {
         cost = 0.75;
         cookingTime=2000;
         this.decoratedPizza = decoratedPizza;
+        System.out.println("in bacon constructor : "+ this.decoratedPizza.description);
+        //in bacon constructor : Original Pizza
 
     }
     @Override
@@ -18,11 +20,13 @@ public class Bacon extends Topping {
     }
     @Override
     public String getDescription(){
-        return decoratedPizza.getDescription()+"\tBacon\n";
+        return decoratedPizza.getDescription()+toString();
     }
     @Override
     public long getCookingTime(){
         return decoratedPizza.getCookingTime()+this.cookingTime;
     }
+
+    public String toString(){ return "\tBacon\n";}
 
 }

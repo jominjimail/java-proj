@@ -3,70 +3,60 @@ package pizzashop;
 public class Demo {
     public static void main(String args[]) {
 
-        OriginalPizza originalPizza = new OriginalPizza(1);
-        DeepPanPizza deepPanPizza = new DeepPanPizza(2);
-        PizzaOrTopping pizzaOrTopping = new PizzaOrTopping(3) {
-            @Override
-            public long getCookingTime() {
-                return 0;
-            }
 
-            @Override
-            public double cost() {
-                return 0;
-            }
-        };
-
-//        System.out.println(originalPizza.toString());
-//        System.out.println(originalPizza.cost());
-//        System.out.println(deepPanPizza.toString());
-//        System.out.println(deepPanPizza.cost());
-//
-//        System.out.println(pizzaOrTopping.toString());
-//        System.out.println(pizzaOrTopping.cost());
 
         OriginalPizza originalPizza1 = new OriginalPizza(4);
+        System.out.println("1 "+originalPizza1.description);
+        //1 Original Pizza
         Bacon bacon = new Bacon(originalPizza1);
 
-        PizzaOrTopping pizzaOrTopping1 = bacon;
-        System.out.println(pizzaOrTopping1.getDescription());
-        System.out.println(pizzaOrTopping1.cost());
-        System.out.println(pizzaOrTopping1.getCookingTime());
+        System.out.println("2 "+bacon.getDescription());
+        //2 Original Pizza
+        //	Bacon
+        System.out.println("3 "+bacon.description);
+        //3 UnKnown Pizza
+        System.out.println("add pepperoni,..");
 
+        Pepperoni pepperoni = new Pepperoni(bacon);
 
-        DeepPanPizza deepPanPizza1 = new DeepPanPizza(5);
-        Bacon bacon1 = new Bacon(deepPanPizza1);
-        Pineapple pineapple = new Pineapple(bacon1);
+        System.out.println("4 "+pepperoni.getDescription());
+        //4 Original Pizza
+        //	Bacon
+        //	Pepperoni
+        System.out.println("5 "+pepperoni.description);
+        //5 UnKnown Pizza
 
-        PizzaOrTopping pizzaOrTopping2 = pineapple;
-        System.out.println(pizzaOrTopping2.getDescription());
-        System.out.println(pizzaOrTopping2.cost());
-        System.out.println(pizzaOrTopping2.getCookingTime());
+        PizzaOrTopping pizzaOrTopping = pepperoni;
 
-        OriginalPizza originalPizza2 = new OriginalPizza(6);
-        Pepperoni pepperoni = new Pepperoni(originalPizza2);
-        Mushroom mushroom = new Mushroom(pepperoni);
-        Cheese cheese = new Cheese(mushroom);
+        System.out.println("6 final : "+pizzaOrTopping.getDescription());
+        //6 final : Original Pizza
+        //	Bacon
+        //	Pepperoni
+        System.out.println("7 final : "+pizzaOrTopping.description);
+        //7 final : UnKnown Pizza
+        pizzaOrTopping.setDescription(pizzaOrTopping.getDescription());
+        System.out.println("8 final : "+pizzaOrTopping.description);
+        //8 final : Original Pizza
+        //	Bacon
+        //	Pepperoni
 
-        PizzaOrTopping pizzaOrTopping3 = cheese;
-        System.out.println(pizzaOrTopping3.getDescription());
-        System.out.println(pizzaOrTopping3.cost());
-        System.out.println(pizzaOrTopping3.getCookingTime());
+//
+//        DeepPanPizza deepPanPizza1 = new DeepPanPizza(5);
+//        Cheese cheese = new Cheese(deepPanPizza1);
+//
+//        System.out.println("main 1: "+cheese.description);
+//        //main 1: UnKnown Pizza
+//        System.out.println("main 2: "+cheese.getDescription());
+//        //main 2: Deep Pan Pizza
+//        //	Cheese
+//        System.out.println("main 3: "+cheese.description);
+//        //main 3: UnKnown Pizza
+//        PizzaOrTopping pizzaOrTopping2 = cheese;
+//
+//        System.out.println(pizzaOrTopping2.description);
+//        //UnKnown Pizza
+//
 
-        //오리지널 파인2 페페로니2 치즈1
-
-        OriginalPizza originalPizza3 = new OriginalPizza(7);
-        Pineapple pineapple1 = new Pineapple(originalPizza3);
-        Pineapple pineapple2 = new Pineapple(pineapple1);
-        Pepperoni pepperoni1 = new Pepperoni(pineapple2);
-        Pepperoni pepperoni2 = new Pepperoni(pepperoni1);
-        Cheese cheese1 = new Cheese(pepperoni2);
-        SweetPotato sweetPotato = new SweetPotato(cheese1);
-
-        PizzaOrTopping pizzaOrTopping4 = sweetPotato;
-        System.out.println(pizzaOrTopping4.getDescription());
-        System.out.println(pizzaOrTopping4.cost());
-        System.out.println(pizzaOrTopping4.getCookingTime());
 
     }
 }

@@ -10,11 +10,11 @@ public class OriginalPizza extends PizzaOrTopping {
         this.cost = 3.75;
         this.cookingTime = 10000;
     }
-
+    @Override
     public long getCookingTime(){
         return this.cookingTime;
     }
-
+    @Override
     public double cost(){
         return this.cost;
     }

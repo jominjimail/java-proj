@@ -18,10 +18,12 @@ public class Mushroom extends Topping {
     }
     @Override
     public String getDescription(){
-        return decoratedPizza.getDescription()+"\tMushroom\n";
+        return decoratedPizza.getDescription()+toString();
     }
     @Override
     public long getCookingTime(){
         return decoratedPizza.getCookingTime()+this.cookingTime;
     }
+
+    public String toString(){ return "\tMushroom\n";}
 }

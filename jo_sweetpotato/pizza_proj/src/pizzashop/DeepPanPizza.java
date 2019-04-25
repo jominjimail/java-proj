@@ -10,11 +10,11 @@ public class DeepPanPizza extends PizzaOrTopping {
         this.cost = 4.50;
         this.cookingTime = 15000;
     }
-
+    @Override
     public long getCookingTime(){
         return this.cookingTime;
     }
-
+    @Override
     public double cost(){
         return this.cost;
     }

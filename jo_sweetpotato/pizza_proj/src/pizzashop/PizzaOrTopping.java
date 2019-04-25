@@ -11,13 +11,13 @@ abstract class PizzaOrTopping {
         this.orderNum = orderNum;
     }
 
-    public String toString(){
-        return this.description;
-    }
-
     public String getDescription(){
         return this.description;
     }
+
+//    public PizzaOrTopping getDescription(){
+//        return this;
+//    }
 
     public boolean getIsFinished(){
         return this.isFinished;

@@ -7,8 +7,8 @@ public class Pineapple extends Topping{
 
     public Pineapple(PizzaOrTopping decoratedPizza){
         super(decoratedPizza.getOrderNum());
-        cost = 1.00;
-        cookingTime=3500;
+        cost = 2.00;
+        cookingTime=2500;
         this.decoratedPizza = decoratedPizza;
 
     }
@@ -18,10 +18,12 @@ public class Pineapple extends Topping{
     }
     @Override
     public String getDescription(){
-        return decoratedPizza.getDescription()+"\tPineapple\n";
+        return decoratedPizza.getDescription()+toString();
     }
     @Override
     public long getCookingTime(){
         return decoratedPizza.getCookingTime()+this.cookingTime;
     }
+
+    public String toString(){ return "\tPineapple\n";}
 }
