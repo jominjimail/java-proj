@@ -1,7 +1,7 @@
 package design.observer.in_hand;
 
 public class Person implements Observer {
-    String personName;
+    private String personName;
 
     public Person(String personName) {
         this.personName = personName;
@@ -15,8 +15,7 @@ public class Person implements Observer {
         this.personName = personName;
     }
 
-    public void update(String availabiliy) {
-
-        System.out.println("Hello "+personName+", Product is now "+availabiliy+" on flipkart");
+    public void update(String availability) {
+        System.out.println("Hello " + personName + ", Product is now " + availability + " on flipkart");
     }
 }

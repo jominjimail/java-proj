@@ -1,8 +1,10 @@
-package design.observer.in_hand;
+package design.observer.inbuilt_API;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Product implements Subject {
+public class Product extends Observable {
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     private String productName;
     private String productType;
@@ -17,10 +19,6 @@ public class Product implements Subject {
     }
 
     public ArrayList<Observer> getObservers() {
-        for (Observer ob : observers) {
-            System.out.println(ob);
-        }
-
         return observers;
     }
 
@@ -48,15 +46,20 @@ public class Product implements Subject {
         return availability;
     }
 
+    // 갱신할 새로운 데이터 여부의 플래그 값을 변경하고(setChanged())
+    // 옵저버들에게 새로운 데이터를 전달한다. (notifyObservers())
     public void setAvailability(String availability) {
-        this.availability = availability;
-        notifyObservers();
+        if (!(this.availability.equalsIgnoreCase(availability))) {
+            this.availability = availability;
+            setChanged();
+            notifyObservers(this, availability);
+        }
     }
 
-    public void notifyObservers() {
+    public void notifyObservers(Observable observable, String availability) {
         System.out.println("Notifying to all the subscribers when product became available");
         for (Observer ob : observers) {
-            ob.update(this.availability);
+            ob.update(observable, this.availability);
         }
 
     }
