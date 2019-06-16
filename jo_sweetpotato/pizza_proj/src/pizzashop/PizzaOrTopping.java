@@ -38,5 +38,9 @@ abstract class PizzaOrTopping {
     public abstract long getCookingTime();
 
     public abstract double getcost();
+
+    public void setFinished() {
+        this.isFinished = true;
+    }
 }
 
