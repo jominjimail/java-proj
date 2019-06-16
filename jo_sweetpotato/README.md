@@ -11,8 +11,30 @@
 
 필수 기능
 
-- 피자에 토핑을 추가할 수 있다. 
+- 피자에 토핑을 추가할 수 있다. (베이컨, 페페로니, 치즈 ...)
 - 토핑이 추가된 피자의 가격과 조리시간, 메뉴정보를 알 수 있다.
-- 피자가 오븐에 들어가서 조리가 완료되면 알림이 울린다.
-- 손님이 원하는 메뉴를 주문받는다. 
+- 피자가 오븐에 들어가서 조리가 완료되면 알림이 울린다. (Timer() 사용)
+
+
+
+Exception in thread "Timer-0" java.util.ConcurrentModificationException
+
+에러가 발생한다. removeObserver() 에서 발생하는거 같은데 정확한 해결책을 모르겠다. 
+
+```java
+public void addPizza(PizzaOrTopping pizza){
+    ...
+	Timer pizzaTimer = new Timer();
+    ...
+    pizzaTimer.schedule(new TimerTask() {
+        @Override
+        public void run() {
+            pizza.setFinished();
+            finishedPizza = pizza;
+            removePizza(pizza);
+            notifyObserver();      
+        }
+    },pizza.getCookingTime());
+}
+```
 
